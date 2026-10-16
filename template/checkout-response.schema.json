@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "checkout-response",
+  "title": "Resposta de start_checkout e get_payment_status",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "intent_id",
+    "consent_id",
+    "idempotency_key",
+    "customer_id",
+    "status",
+    "status_label",
+    "amount_cents",
+    "amount_display",
+    "currency",
+    "items",
+    "summary",
+    "receiver_name",
+    "pix_key",
+    "pix_key_type",
+    "approval_id",
+    "end_to_end_id",
+    "created_at",
+    "expires_at",
+    "approved_at",
+    "settled_at",
+    "next_step"
+  ],
+  "properties": {
+    "intent_id": { "type": "string" },
+    "consent_id": { "type": "string" },
+    "idempotency_key": { "type": "string" },
+    "customer_id": { "const": "cust_demo_001" },
+    "status": {
+      "enum": [
+        "created",
+        "awaiting_user_approval",
+        "approved",
+        "rejected",
+        "expired",
+        "settled"
+      ]
+    },
+    "status_label": { "type": "string" },
+    "amount_cents": { "type": "integer" },
+    "amount_display": { "type": "string" },
+    "currency": { "const": "BRL" },
+    "items": { "type": "array" },
+    "summary": { "type": "string" },
+    "receiver_name": { "type": "string" },
+    "pix_key": { "type": "string" },
+    "pix_key_type": { "type": "string" },
+    "approval_id": { "type": ["string", "null"] },
+    "end_to_end_id": { "type": ["string", "null"] },
+    "created_at": { "type": "string" },
+    "expires_at": { "type": "string" },
+    "approved_at": { "type": ["string", "null"] },
+    "settled_at": { "type": ["string", "null"] },
+    "idempotent_replay": { "type": "boolean" },
+    "next_step": { "type": "string" }
+  }
+}

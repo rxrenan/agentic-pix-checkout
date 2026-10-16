@@ -1,0 +1,69 @@
+{
+  "store": {
+    "id": "loja_cafe_aurora",
+    "name": "Café Aurora",
+    "address": "Rua das Letras, 100, Cidade Demo",
+    "pix": {
+      "key_type": "aleatoria_ficticia",
+      "key": "demo-chave-pix-nao-real-cafe-aurora",
+      "holder_name": "Cafe Aurora"
+    }
+  },
+  "currency": "BRL",
+  "policies": {
+    "fulfillment": "retirada_no_balcao",
+    "shipping_cents": 0,
+    "returns": "Produto de consumo imediato. Sem devolução neste protótipo."
+  },
+  "items": [
+    {
+      "sku": "cafe-coado-200",
+      "name": "Café coado 200ml",
+      "description": "Coado do dia. Grão fictício da casa.",
+      "unit_price_cents": 800,
+      "available": true
+    },
+    {
+      "sku": "pao-na-chapa",
+      "name": "Pão na chapa",
+      "description": "Pão francês na chapa com manteiga.",
+      "unit_price_cents": 650,
+      "available": true
+    },
+    {
+      "sku": "espresso",
+      "name": "Espresso",
+      "description": "Dose curta.",
+      "unit_price_cents": 700,
+      "available": true
+    },
+    {
+      "sku": "capuccino",
+      "name": "Capuccino",
+      "description": "Café com leite vaporizado.",
+      "unit_price_cents": 1200,
+      "available": true
+    },
+    {
+      "sku": "pao-de-queijo",
+      "name": "Pão de queijo",
+      "description": "Unidade.",
+      "unit_price_cents": 600,
+      "available": true
+    },
+    {
+      "sku": "suco-laranja",
+      "name": "Suco de laranja",
+      "description": "Copo de 300ml.",
+      "unit_price_cents": 1000,
+      "available": true
+    },
+    {
+      "sku": "bolo-festa",
+      "name": "Bolo de festa",
+      "description": "Indisponível de propósito, para o agente respeitar o estoque.",
+      "unit_price_cents": 9000,
+      "available": false
+    }
+  ]
+}
