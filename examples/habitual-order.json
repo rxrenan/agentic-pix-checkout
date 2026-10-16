@@ -1,0 +1,8 @@
+{
+  "customer_id": "cust_demo_001",
+  "label": "café de sempre",
+  "items": [
+    { "sku": "cafe-coado-200", "qty": 1 },
+    { "sku": "pao-na-chapa", "qty": 1 }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "name": "agentic-pix-checkout",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Protótipo de checkout agêntico com Pix simulado. O agente monta o pedido. O usuário aprova. Sem credenciais.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "demo": "tsx src/demo/run.ts",
+    "mcp": "tsx src/mcp/server.ts",
+    "aprovar": "tsx src/cli/approve.ts",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.0",
+    "tsx": "^4.20.6",
+    "typescript": "^5.9.3"
+  },
+  "license": "MIT"
+}
