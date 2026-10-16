@@ -10,7 +10,7 @@ Author: Renan R. Rosa, Staff Product Manager | Payment Infrastructure | Pix · O
 
 Status: prototype · 100% fictional data
 
-LinkedIn post: [A CONFIRMAR]
+LinkedIn post: case launch post (coming soon). Post de lançamento do case (em breve).
 
 Series: case 1 of a series on AI agents in finance · previous: none · next: [A CONFIRMAR]
 
@@ -28,11 +28,12 @@ Product question: can a small Brazilian store be bought by an agent, over Pix, w
 
 Why now:
 
-- On 21 May 2026 Let's Money reported that Iniciador launched an agentic-payments MCP over Pix, with biometric approval on every transaction, and described it as the first in Brazil. On 22 August 2026 Golber wrote that in July 2026 the flow reached WhatsApp with Tyxter. The May article does not mention Tyxter or July. [A CONFIRMAR] against a primary note from Iniciador or Tyxter.
-- Let's Money and Golber attribute to EBANX (Beyond Borders 2026) a 44% checkout share for Pix against 41% for cards. Let's Money says "44% of checkout in the country, against 41% for cards". Golber says "44% of checkouts against 41% for credit cards". The EBANX primary report is not in this repo. [A CONFIRMAR] the link and the exact wording.
-- BCB Normative Instruction 746/2026 changes the default R$ 500 cap. Jornal Contábil (18 June 2026) says the norm removes that per-transaction cap for Pix by proximity and for the no-redirect journey (Jornada sem Redirecionamento), with institutions adapting by 1 October 2026. Golber describes the norm taking effect on 1 October 2026, Pix Automático inside daily-limit change requests, and the end of the R$ 500 daily cap on Pix by proximity. Those are not the same claim. The text on the Central Bank site is [A CONFIRMAR]. This case does not pick one reading as fact.
+- Iniciador's Agentic Payments page describes an MCP server that lets an agent initiate Pix on the user's behalf, with biometric approval on every transaction. The published flow has three steps. The agent sends a QR Code, a copy-and-paste string, or a Pix key, plus an amount. The person checks amount and receiver on an interface Iniciador generates, not one the agent draws, and authorizes with Face ID, Touch ID, or the equivalent. The ceremony is FIDO2, on the device. A JSR-signed payload goes to the paying bank, which validates it and settles on Pix. The same page lists WhatsApp as a channel that can receive that screen, and as a billing use case. The person authorizes the device once and still approves each Pix. For a scheduled Pix, the page describes settlement on the chosen date, up to 90 days out, without a new authorization. Iniciador's own announcement, 19 May 2026, calls this MCP the first in Brazil and states the same rule: the agent does not move the money by itself. https://iniciador.com.br/produtos/pagamentos-agenticos and https://iniciador.com.br/conteudos/iniciador-anuncia-pagamentos-agenticos-full-stack-ai-toolkit
+- Tyxter is not named on iniciador.com.br. Let's Money (17 July 2026) and Tyxter's own page describe an integration that brings these agentic payments into Tyxter's API, on WhatsApp, with the person checking amount and recipient and authorizing with biometrics. https://www.letsmoney.com.br/noticias/iniciador-tyxter-pix-agentico-whatsapp/ and https://tyxter.com/agentic-payments
+- Iniciador's 19 May 2026 post attributes to EBANX (Beyond Borders 2026) the line "44% of checkout in the country, against 41% for cards". The EBANX report is not linked on that page. [A CONFIRMAR] the primary EBANX URL.
+- BCB Normative Instruction 746, of 16 June 2026, has been in force since 1 October 2026. The text in the Federal Official Gazette of 19 June 2026 amends IN BCB 512/2024 on the limits for proximity initiation and for payment initiation without redirect, and revokes article 10, paragraph 2, item VI, plus articles 16-A and 16-C. There is no longer a default R$ 500 limit for Pix by proximity or for the no-redirect journey (Jornada sem Redirecionamento). Agência Brasil (1 October 2026) states the effect: the specific R$ 500 per-transaction cap is gone, and the customer asks the bank to raise or lower the limit inside the account's own rules. https://www.in.gov.br/web/dou/-/instrucao-normativa-bcb-n-746-de-16-de-junho-de-2026-713285339 and https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?numero=746&tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB and https://agenciabrasil.ebc.com.br/economia/noticia/2026-09/pix-por-aproximacao-deixa-de-ter-teto-de-r-500-partir-desta-quinta
 
-The product reference is payment initiation with the account holder confirming, in the spirit of the no-redirect journey: a third party requests, the person authorizes at their own institution. This repo does not describe an employer, an internal system, or a production journey.
+The public reference for this case is that Iniciador page. The JSR-signed payload is the point of contact with the no-redirect journey. This repo does not call their API, and it does not describe an employer, an internal system, or a production journey.
 
 ![Before: checkout with a page, method choice, and manual confirmation. After: chat, a cart built by the agent, and simulated Pix with biometric approval](docs/assets/antes-depois-1600x900.png)
 
@@ -106,16 +107,16 @@ The agent sees six tools: `list_catalog`, `get_habitual_order`, `upsert_cart`, `
 - "Biometrics" is a fixed phrase. No fingerprint, face, or device.
 - Fraud checks, daily limits, MED (Pix's special refund mechanism), refunds, scheduling, and production retries are out. Idempotency covers a retry of the same key, and nothing else.
 - The agent can pick the wrong item. This prototype's mitigation is the cart summary in the response, before approval. There is no measurement of model accuracy.
-- The real no-redirect journey has consent, deadline, and channel rules this mock simplifies. The design takes that journey as a reference.
+- Iniciador's Agentic Payments page describes on-device FIDO2 biometrics, a JSR-signed payload, and a webhook. This mock uses a phrase in place of biometrics and does not sign a payload.
 - Anyone with access to the machine can reach `127.0.0.1`. The bind is local-only, not an access control.
 - Left out on purpose: production, many stores, a recurring mandate, WhatsApp, and a regulated ITP.
 
 ## 7. Next steps
 
-- Record the journey in Claude Desktop with the prompt in `prompts/agente-checkout.md`. [A CONFIRMAR] the video script.
+- The script for the in-chat journey video stays for a later step. The prompt is already in `prompts/agente-checkout.md`.
 - Connect an initiation sandbox if there is an institution and an environment. [A CONFIRMAR] which ITP and which API. The gap list is in `docs/como-replicar.md`.
 - Set a per-transaction cap, and define what a recurring mandate would be without skipping confirmation on each debit.
-- Publish the post for this case. [A CONFIRMAR] the link.
+- Publish the case launch post (coming soon).
 
 ## How to run
 
@@ -149,13 +150,16 @@ With real data: see `docs/como-replicar.md`. Copy `.env.example` to `.env` and f
 
 ## Sources
 
+- Iniciador, Agentic Payments page (MCP flow, biometric approval per transaction, JSR, WhatsApp as a channel): https://iniciador.com.br/produtos/pagamentos-agenticos
+- Iniciador, 19 May 2026, announcement of the agentic Pix payments MCP and the EBANX citation: https://iniciador.com.br/conteudos/iniciador-anuncia-pagamentos-agenticos-full-stack-ai-toolkit
+- Tyxter, page on the Iniciador integration. Iniciador's site does not use that name: https://tyxter.com/agentic-payments
+- Let's Money, 17 July 2026, Iniciador and Tyxter on WhatsApp: https://www.letsmoney.com.br/noticias/iniciador-tyxter-pix-agentico-whatsapp/
+- BCB Normative Instruction 746, of 16 June 2026, text in the Federal Official Gazette of 19 June 2026, in force on 1 October 2026: https://www.in.gov.br/web/dou/-/instrucao-normativa-bcb-n-746-de-16-de-junho-de-2026-713285339
+- Norm page on the Central Bank site: https://www.bcb.gov.br/estabilidadefinanceira/exibenormativo?numero=746&tipo=Instru%C3%A7%C3%A3o%20Normativa%20BCB
+- Agência Brasil, 1 October 2026, end of the R$ 500 cap: https://agenciabrasil.ebc.com.br/economia/noticia/2026-09/pix-por-aproximacao-deixa-de-ter-teto-de-r-500-partir-desta-quinta
 - MCP, the stdio subset this server speaks: https://modelcontextprotocol.io/
-- Let's Money, 21 May 2026, agentic Pix payments MCP: https://www.letsmoney.com.br/pagamentos/iniciador-lanca-o-primeiro-mcp-de-pagamentos-agenticos-via-pix/
-- Golber, 22 August 2026, agentic commerce, Pix, ACP, AP2, x402, Tyxter, and BCB IN 746/2026: https://golber.net/blog/comercio-agentico-brasil-pix-acp-ap2-x402
 - iMasters, URL on agentic commerce, biometric Pix, and a Getnet proposal. The article body is not copied here. [A CONFIRMAR] what it claims: https://imasters.com.br/inteligencia-artificial/agentic-commerce-e-pix-por-biometria-o-que-a-getnet-propoe-para-o-checkout-brasi
-- Jornal Contábil, 18 June 2026, Pix proximity and JSR limits: https://jornalcontabil.com.br/noticia/banco-central-estabelece-novo-limite-para-o-pix-por-aproximacao/
-- Official text of BCB Normative Instruction 746/2026: [A CONFIRMAR]
-- EBANX Beyond Borders 2026 report: [A CONFIRMAR]
+- EBANX Beyond Borders 2026 report: [A CONFIRMAR] the primary URL. The 44% and 41% line is in Iniciador's announcement, attributed to that report.
 
 ## Notice
 
