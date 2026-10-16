@@ -10,10 +10,6 @@ Autor: Renan R. Rosa, Staff Product Manager | Payment Infrastructure | Pix · Op
 
 Status: protótipo · dados 100% fictícios
 
-Post no LinkedIn: post de lançamento do case (em breve).
-
-Série: case 1 de uma série sobre agentes de IA em finanças · anterior: nenhum · próximo: [A CONFIRMAR]
-
 ![Capa do case: chat com o pedido do café de sempre, catálogo do Café Aurora e aprovação biométrica simulada antes do Pix](docs/assets/preview-1600x900.png)
 
 ## 1. Problema
@@ -116,7 +112,6 @@ O agente vê seis ferramentas: `list_catalog`, `get_habitual_order`, `upsert_car
 - O roteiro do vídeo da jornada no chat fica para uma etapa seguinte. O prompt já está em `prompts/agente-checkout.md`.
 - Ligar um sandbox de iniciação, se houver instituição e ambiente. [A CONFIRMAR] qual ITP e qual API. O mapa do que falta está em `docs/como-replicar.md`.
 - Definir teto por transação e o que seria um mandato recorrente sem pular a confirmação de cada débito.
-- Publicar o post de lançamento do case (em breve).
 
 ## Como rodar
 

@@ -10,10 +10,6 @@ Author: Renan R. Rosa, Staff Product Manager | Payment Infrastructure | Pix · O
 
 Status: prototype · 100% fictional data
 
-LinkedIn post: case launch post (coming soon). Post de lançamento do case (em breve).
-
-Series: case 1 of a series on AI agents in finance · previous: none · next: [A CONFIRMAR]
-
 ![Case cover: chat asking for the usual coffee, Café Aurora catalog, and a simulated biometric approval before Pix](docs/assets/preview-1600x900.png)
 
 ## 1. Problem
@@ -116,7 +112,6 @@ The agent sees six tools: `list_catalog`, `get_habitual_order`, `upsert_cart`, `
 - The script for the in-chat journey video stays for a later step. The prompt is already in `prompts/agente-checkout.md`.
 - Connect an initiation sandbox if there is an institution and an environment. [A CONFIRMAR] which ITP and which API. The gap list is in `docs/como-replicar.md`.
 - Set a per-transaction cap, and define what a recurring mandate would be without skipping confirmation on each debit.
-- Publish the case launch post (coming soon).
 
 ## How to run
 
